@@ -1,5 +1,5 @@
 let arr = ['Камень', 'Ножницы', 'Бумага']
-let userName = prompt('Ваше имя?','')
+let userName = prompt('Ваше имя?', '')
 while (userName == '' || userName == null) {
   userName = prompt('Ваше имя?', '')
 }
@@ -29,25 +29,46 @@ let draw = 'Ничья, попробуйте снова'
 
 // Раунд 1
 function round(playerSelection, computerSelection) {
-  if (playerSelection === computerSelection) {
-    return alert('Ничья, попробуйте снова')
+  if (playerSelection.toLowerCase() === computerSelection.toLowerCase()) {
+    return (playerSelection = prompt(
+      'Ничья, попробуйте снова. Камень, ножницы или бумага?',
+      ''
+    ))
   }
-  if (playerSelection == 'Камень' && computerSelection == 'Ножницы') {
+  if (
+    playerSelection.toLowerCase() == 'камень' &&
+    computerSelection.toLowerCase() == 'ножницы'
+  ) {
     return alert(victory)
   }
-  if (playerSelection == 'Камень' && computerSelection == 'Бумага') {
+  if (
+    playerSelection.toLowerCase() == 'камень' &&
+    computerSelection.toLowerCase() == 'бумага'
+  ) {
     return alert(lose)
   }
-  if (playerSelection == 'Бумага' && computerSelection == 'Камень') {
+  if (
+    playerSelection.toLowerCase() == 'бумага' &&
+    computerSelection.toLowerCase() == 'камень'
+  ) {
     return alert(victory)
   }
-  if (playerSelection == 'Бумага' && computerSelection == 'Ножницы') {
+  if (
+    playerSelection.toLowerCase() == 'бумага' &&
+    computerSelection.toLowerCase() == 'ножницы'
+  ) {
     return alert(lose)
   }
-  if (playerSelection == 'Ножницы' && computerSelection == 'Бумага') {
+  if (
+    playerSelection.toLowerCase() == 'ножницы' &&
+    computerSelection.toLowerCase() == 'бумага'
+  ) {
     return alert(victory)
   }
-  if (playerSelection == 'Ножницы' && computerSelection == 'Камень') {
+  if (
+    playerSelection.toLowerCase() == 'ножницы' &&
+    computerSelection.toLowerCase() == 'камень'
+  ) {
     return alert(lose)
   }
 }
