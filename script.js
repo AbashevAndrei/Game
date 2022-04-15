@@ -1,5 +1,8 @@
 let arr = ['Камень', 'Ножницы', 'Бумага']
-let arr1 = []
+let userName = prompt('Ваше имя?','')
+while (userName == '' || userName == null) {
+  userName = prompt('Ваше имя?', '')
+}
 
 let playerSelection = prompt('Камень, ножницы или бумага?', '')
 
@@ -8,7 +11,7 @@ while (playerSelection == '' || playerSelection == null) {
   playerSelection = prompt('Камень, ножницы или бумага?', '')
 }
 
-alert(`Ты выбрал: ${playerSelection}!`)
+alert(`${userName} выбрал(а): ${playerSelection}!`)
 
 // Случайный выбор компьютера
 function computerPlay(arr) {
