@@ -1,39 +1,12 @@
 let arr = ['Камень', 'Ножницы', 'Бумага']
-let userName = prompt('Ваше имя?', '')
-while (userName == '' || userName == null) {
-  userName = prompt('Ваше имя?', '')
-}
 
-let playerSelection = prompt('Камень, ножницы или бумага?', '')
-
-// Выводит сообщение, пока пользователь что-нибудь не напечатает (вопрос повторяется и при нажатии Esc)
-while (playerSelection == '' || playerSelection == null) {
-  playerSelection = prompt('Камень, ножницы или бумага?', '')
-}
-
-alert(`${userName} выбрал(а): ${playerSelection}!`)
-
-// Случайный выбор компьютера
-function computerPlay(arr) {
-  let rand = Math.floor(Math.random() * arr.length)
-  return arr[rand]
-}
-
-let computerSelection = computerPlay(arr)
-
-alert(`Компьютер выбрал: ${computerSelection}`)
-
-let victory = 'Вы победили!'
-let lose = 'Вы проиграли!'
-let draw = 'Ничья, попробуйте снова'
-
-// Раунд 1
+// Один раунд
 function round(playerSelection, computerSelection) {
+  let victory = 'Вы победили!'
+  let lose = 'Вы проиграли!'
+  let draw = 'Ничья, попробуйте снова'
   if (playerSelection.toLowerCase() === computerSelection.toLowerCase()) {
-    return (playerSelection = prompt(
-      'Ничья, попробуйте снова. Камень, ножницы или бумага?',
-      ''
-    ))
+    return alert(draw)
   }
   if (
     playerSelection.toLowerCase() == 'камень' &&
@@ -73,4 +46,40 @@ function round(playerSelection, computerSelection) {
   }
 }
 
-round(playerSelection, computerSelection)
+// Раунд 1-5
+function game(n) {
+  for (i = 0; i < n; i++) {
+    // Спрашиваем имя пользователя
+    let userName = prompt('Ваше имя?', '')
+    while (userName == '' || userName == null) {
+      userName = prompt('Ваше имя?', '')
+    }
+
+    // Просим пользователя сделать выбор
+    let playerSelection = prompt('Камень, ножницы или бумага?', '')
+
+    // Выводим сообщение, пока пользователь что-нибудь не напечатает (вопрос повторяется и при нажатии Esc)
+    while (playerSelection == '' || playerSelection == null) {
+      playerSelection = prompt('Камень, ножницы или бумага?', '')
+    }
+
+    alert(`${userName} выбрал(а): ${playerSelection}!`)
+
+    // Случайный выбор компьютера из возможных вариантов, указанных в массиве arr
+    function computerPlay(arr) {
+      let rand = Math.floor(Math.random() * arr.length)
+      return arr[rand]
+    }
+
+    let computerSelection = computerPlay(arr)
+
+    alert(`Компьютер выбрал: ${computerSelection}`)
+    
+    // Замыкание, рекурсия?
+    round(playerSelection, computerSelection)
+  }
+}
+
+game(5)
+
+// round(playerSelection, computerSelection)
