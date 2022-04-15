@@ -11,7 +11,13 @@ while (userName == '' || userName == null) {
   userName = prompt('Ваше имя?', '')
 }
 
-// Игра с выбором числа раундов
+// Спрашиваем число раундов
+let numberOfRounds = prompt('Сколько раундов будем играть?', '')
+while (numberOfRounds == '' || numberOfRounds == null) {
+  numberOfRounds = prompt('Сколько раундов будем играть?', '')
+}
+
+// Игра с указанным пользователем числом раундов
 function game(n) {
   for (i = 0; i < n; i++) {
     // Просим пользователя сделать выбор
@@ -101,5 +107,4 @@ function round(playerSelection, computerSelection) {
   }
 }
 
-// Два раунда
-game(3)
+game(numberOfRounds)
