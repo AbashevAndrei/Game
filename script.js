@@ -22,7 +22,14 @@ function game(n) {
   for (i = 0; i < n; i++) {
     // Просим пользователя сделать выбор
     let playerSelection = prompt('Камень, ножницы или бумага?', '')
-
+    // Проверяем адекватность ответа
+    while (
+      playerSelection.toLowerCase() !== 'камень' &&
+      playerSelection.toLowerCase() !== 'ножницы' &&
+      playerSelection.toLowerCase() !== 'бумага'
+    ) {
+      playerSelection = prompt('Камень, ножницы или бумага?', '')
+    }
     // Выводим сообщение, пока пользователь что-нибудь не напечатает (вопрос повторяется и при нажатии Esc)
     while (playerSelection == '' || playerSelection == null) {
       playerSelection = prompt('Камень, ножницы или бумага?', '')
